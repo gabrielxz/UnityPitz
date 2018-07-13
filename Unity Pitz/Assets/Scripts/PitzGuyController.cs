@@ -28,6 +28,11 @@ public class PitzGuyController : MonoBehaviour
         //Use the two store floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
+        if(movement.sqrMagnitude > 1) // Only normalize if necessary
+        {
+            movement = movement.normalized;
+        }
+
         //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
         rb2d.AddForce(movement * speed);
     }
