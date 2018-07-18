@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class shinigami : MonoBehaviour {
 
+	public GameObject target;
+	public float speed;
+
 	private LevelManager levelManager;
 	
 	void Start ()
@@ -14,5 +17,13 @@ public class shinigami : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		levelManager.LoadLevel ("Lose Screen");
+	}
+
+	void FixedUpdate()
+	{
+		// Hunt target
+		Vector3 offset;
+		offset = transform.position - target.transform.position;
+		transform.position -= offset.normalized * speed;
 	}
 }
