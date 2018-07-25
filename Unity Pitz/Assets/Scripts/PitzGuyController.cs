@@ -34,6 +34,10 @@ public class PitzGuyController : MonoBehaviour
         }
 
         //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-        rb2d.AddForce(movement * speed);
+        if(movement.magnitude>0){
+          rb2d.AddForce(movement * speed);
+        }else {
+          rb2d.AddForce(new Vector2(-rb2d.velocity.normalized.x,-rb2d.velocity.normalized.y) * 6);
+        }
     }
 }
