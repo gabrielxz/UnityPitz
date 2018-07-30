@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4475902279208140}
   - component: {fileID: 2569400268248798924}
   m_Layer: 31
-  m_Name: Ground Tiles
+  m_Name: All Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
