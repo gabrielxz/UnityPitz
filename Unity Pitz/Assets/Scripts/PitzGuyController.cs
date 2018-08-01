@@ -6,6 +6,8 @@ public class PitzGuyController : MonoBehaviour
 {
 
     public float speed;             //Floating point variable to store the player's movement speed.
+    public GameObject GmpPrefab;
+
 
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
@@ -16,6 +18,14 @@ public class PitzGuyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.freezeRotation = true;
 
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject tile = Instantiate(GmpPrefab, transform.position, Quaternion.identity, transform);
+        }
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -39,3 +49,4 @@ public class PitzGuyController : MonoBehaviour
         rb2d.AddForce(movement * speed);
     }
 }
+

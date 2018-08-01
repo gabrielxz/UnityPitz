@@ -897,6 +897,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114179848349297444, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: GmpPrefab
+      value: 
+      objectReference: {fileID: 1768444729650448, guid: aeb8bd91d0b318e4bb0b95c8e9d3c369,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
   m_IsPrefabAsset: 0
