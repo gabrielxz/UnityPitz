@@ -14,6 +14,8 @@ public class PitzGuyController : MonoBehaviour
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
+
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -28,7 +30,7 @@ public class PitzGuyController : MonoBehaviour
         //Use the two store floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
-        if(movement.sqrMagnitude > 1) // Only normalize if necessary
+        if (movement.sqrMagnitude > 1) // Only normalize if necessary
         {
             movement = movement.normalized;
         }
