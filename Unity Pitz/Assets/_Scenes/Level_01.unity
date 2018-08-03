@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 509354372}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: deathAudio
+  m_TagString: DeathAudio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1025,6 +1025,10 @@ Prefab:
         type: 2}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494613424303250, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
