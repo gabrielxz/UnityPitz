@@ -10,6 +10,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void LoadNextLevel ()
+	{
+		Application.LoadLevel (Application.loadedLevel + 1);
+	}
+
     public void QuitRequest()
     {
         Debug.Log("Quit requested");

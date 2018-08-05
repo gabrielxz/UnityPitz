@@ -14,7 +14,7 @@ public class goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        levelManager.LoadLevel("Level_02");
+        levelManager.LoadNextLevel();
     }
 
 }
