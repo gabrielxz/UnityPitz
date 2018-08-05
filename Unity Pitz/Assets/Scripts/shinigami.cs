@@ -7,14 +7,14 @@ public class shinigami : MonoBehaviour {
 	public GameObject target;
 	public float speed;
 
-	private PitzGuyController rb2d;
+	private PitzGuyController playerController;
 
 	void Start () {
-		rb2d = GameObject.FindObjectOfType<PitzGuyController> ();
+		playerController = GameObject.FindObjectOfType<PitzGuyController> ();
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		rb2d.Die ();
+		playerController.Die ();
 	}
 
 	void FixedUpdate () {
