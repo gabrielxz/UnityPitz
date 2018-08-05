@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class Pit : MonoBehaviour {
 
-	private LevelManager levelManager;
+	private PitzGuyController rb2d;
 
-	private AudioSource audioSource;
-
-	private Rigidbody2D rb2d;
+	private Transform pitTransform;
 
 	void Start () {
-		rb2d = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D> ();
-		audioSource = GameObject.FindGameObjectWithTag ("DeathAudio").GetComponent<AudioSource> ();
-		levelManager = GameObject.FindObjectOfType<LevelManager> ();
+		rb2d = GameObject.FindObjectOfType<PitzGuyController> ();
+		pitTransform = GetComponent<Transform> ();
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		StartCoroutine (MyCoroutine ());
-	}
-
-	IEnumerator MyCoroutine () {
-		rb2d.velocity = Vector3.zero;
-		rb2d.Sleep ();
-		audioSource.Play ();
-		yield return new WaitForSeconds (1);
-		levelManager.LoadLevel ("Lose Screen");
+		rb2d.Die();
+		rb2d.Shrink(pitTransform.position);
 	}
 
 }
