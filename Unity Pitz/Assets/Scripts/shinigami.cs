@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class shinigami : MonoBehaviour {
 
-	public GameObject target;
+	private GameObject target;
 	public float speed;
+	private AudioClip deathSound;
 
 	private PitzGuyController playerController;
 
 	void Start () {
 		playerController = GameObject.FindObjectOfType<PitzGuyController> ();
+		target = GameObject.FindGameObjectWithTag ("Player");
+		deathSound = Resources.Load<AudioClip> ("death1");
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		playerController.Die ();
+		playerController.Die (deathSound);
+		playerController.Shrink (target.transform.position);
 	}
 
 	void FixedUpdate () {

@@ -42,8 +42,8 @@ public class PitzGuyController : MonoBehaviour {
         }
     }
 
-    public void Die () {
-        StartCoroutine (DeathCourotine ());
+    public void Die (AudioClip deathSound) {
+        StartCoroutine (DeathCourotine (deathSound));
         
     }
 
@@ -51,9 +51,10 @@ public class PitzGuyController : MonoBehaviour {
         StartCoroutine (ShrinkCourotine (pos));
     }
 
-    IEnumerator DeathCourotine () {
+    IEnumerator DeathCourotine (AudioClip deathSound) {
         playerRigidbody.velocity = Vector3.zero;
         isFrozen = true;
+        deathAudio.clip = deathSound;
         deathAudio.Play ();
         yield return new WaitForSeconds (2);
         levelManager.LoadLevel ("Lose Screen");

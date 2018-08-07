@@ -8,14 +8,17 @@ public class Pit : MonoBehaviour {
 
 	private Transform pitTransform;
 
+	private AudioClip deathSound;
+
 	void Start () {
 		playerController = GameObject.FindObjectOfType<PitzGuyController> ();
 		pitTransform = GetComponent<Transform> ();
+		deathSound = Resources.Load<AudioClip> ("whoa3");
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		playerController.Die();
-		playerController.Shrink(pitTransform.position);
+		playerController.Die (deathSound);
+		playerController.Shrink (pitTransform.position);
 	}
 
 }

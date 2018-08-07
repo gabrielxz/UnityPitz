@@ -48,3 +48,6 @@ TagManager:
   - name: Player
     uniqueID: 1385751541
     locked: 0
+  - name: Shinigami
+    uniqueID: 3446010281
+    locked: 0
