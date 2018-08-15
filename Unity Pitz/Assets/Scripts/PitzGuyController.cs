@@ -1,23 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PitzGuyController : MonoBehaviour
 {
+    public float speed;
 
-    public float speed;             //Floating point variable to store the player's movement speed.
     public GameObject GmpPrefab;
 
+    private Rigidbody2D playerRigidbody;
 
-    private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    private AudioSource deathAudio;
 
-    // Use this for initialization
+    private LevelManager levelManager;
+
+    private Transform playerTransform;
+
+    private bool isFrozen = false;
+
     void Start()
     {
-        //Get and store a reference to the Rigidbody2D component so that we can access it.
-        rb2d = GetComponent<Rigidbody2D>();
-        rb2d.freezeRotation = true;
-
+        playerRigidbody = GetComponent<Rigidbody2D>();
+        playerRigidbody.freezeRotation = true;
+        deathAudio = GameObject.FindGameObjectWithTag("DeathAudio").GetComponent<AudioSource>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+        playerTransform = GetComponent<Transform>();
     }
 
     void Update()
@@ -28,25 +36,59 @@ public class PitzGuyController : MonoBehaviour
         }
     }
 
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
-        //Store the current horizontal input in the float moveHorizontal.
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis("Vertical");
 
-        //Use the two store floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
-        if (movement.sqrMagnitude > 1) // Only normalize if necessary
+        if (movement.sqrMagnitude > 1)
         {
             movement = movement.normalized;
         }
 
-        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-        rb2d.AddForce(movement * speed);
+        if (movement.magnitude > 0 && !isFrozen)
+        {
+            playerRigidbody.AddForce(movement * speed);
+        }
+        else
+        {
+            playerRigidbody.AddForce(new Vector2(-playerRigidbody.velocity.normalized.x, -playerRigidbody.velocity.normalized.y) * 6);
+        }
+    }
+
+    public void Die(AudioClip deathSound)
+    {
+        StartCoroutine(DeathCourotine(deathSound));
+
+    }
+
+    public void Shrink(Vector3 pos)
+    {
+        StartCoroutine(ShrinkCourotine(pos));
+    }
+
+    IEnumerator DeathCourotine(AudioClip deathSound)
+    {
+        playerRigidbody.velocity = Vector3.zero;
+        isFrozen = true;
+        deathAudio.clip = deathSound;
+        deathAudio.Play();
+        yield return new WaitForSeconds(2);
+        levelManager.LoadLevel("Lose Screen");
+    }
+
+    IEnumerator ShrinkCourotine(Vector3 pos)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            playerTransform.position = pos;
+            Vector3 currentScale = playerTransform.localScale;
+            playerTransform.localScale = new Vector3(currentScale.x - 0.1f, currentScale.y - 0.1f, currentScale.z - 0.1f);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
 

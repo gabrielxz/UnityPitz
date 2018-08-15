@@ -1,29 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
-public class shinigami : MonoBehaviour {
+public class shinigami : MonoBehaviour
+{
+    public float speed;
 
-	public GameObject target;
-	public float speed;
+    private GameObject target;
+    private AudioClip deathSound;
+    private PitzGuyController playerController;
 
-	private LevelManager levelManager;
-	
-	void Start ()
-	{
-		levelManager = GameObject.FindObjectOfType<LevelManager> ();
-	}
-	
-	void OnTriggerEnter2D (Collider2D other)
-	{
-		levelManager.LoadLevel ("Lose Screen");
-	}
+    void Start()
+    {
+        playerController = GameObject.FindObjectOfType<PitzGuyController>();
+        target = GameObject.FindGameObjectWithTag("Player");
+        deathSound = Resources.Load<AudioClip>("death1");
+    }
 
-	void FixedUpdate()
-	{
-		// Hunt target
-		Vector3 offset;
-		offset = transform.position - target.transform.position;
-		transform.position -= offset.normalized * speed;
-	}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        playerController.Die(deathSound);
+        playerController.Shrink(target.transform.position);
+    }
+
+    void FixedUpdate()
+    {
+        // Hunt target
+        Vector3 offset;
+        offset = transform.position - target.transform.position;
+        transform.position -= offset.normalized * speed;
+    }
+
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class goal : MonoBehaviour
@@ -14,7 +15,7 @@ public class goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        levelManager.LoadLevel("Level_02");
+        levelManager.LoadNextLevel();
     }
 
 }
