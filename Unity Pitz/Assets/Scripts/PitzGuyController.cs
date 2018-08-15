@@ -52,8 +52,7 @@ public class PitzGuyController : MonoBehaviour {
     }
 
     IEnumerator DeathCourotine (AudioClip deathSound) {
-        playerRigidbody.velocity = Vector3.zero;
-        isFrozen = true;
+        Freeze();
         deathAudio.clip = deathSound;
         deathAudio.Play ();
         yield return new WaitForSeconds (2);
@@ -68,5 +67,10 @@ public class PitzGuyController : MonoBehaviour {
             playerTransform.localScale = new Vector3(currentScale.x-0.1f, currentScale.y-0.1f, currentScale.z-0.1f);
             yield return new WaitForSeconds (0.1f);
         }
+    }
+
+    public void Freeze(){
+        playerRigidbody.velocity = Vector3.zero;
+        isFrozen = true;
     }
 }

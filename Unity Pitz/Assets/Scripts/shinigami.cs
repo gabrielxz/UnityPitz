@@ -7,6 +7,7 @@ public class shinigami : MonoBehaviour {
 	private GameObject target;
 	public float speed;
 	private AudioClip deathSound;
+	private bool isFrozen = false;
 
 	private PitzGuyController playerController;
 
@@ -17,15 +18,22 @@ public class shinigami : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
+		Freeze();
 		playerController.Die (deathSound);
 		playerController.Shrink (target.transform.position);
 	}
 
+	
+    public void Freeze(){
+        isFrozen = true;
+    }
+
 	void FixedUpdate () {
-		// Hunt target
-		Vector3 offset;
-		offset = transform.position - target.transform.position;
-		transform.position -= offset.normalized * speed;
+		if(!isFrozen){
+			Vector3 offset;
+			offset = transform.position - target.transform.position;
+			transform.position -= offset.normalized * speed;
+		}
 	}
 
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeathAudio
+  - WinParticles
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,10 @@ TagManager:
     locked: 0
   - name: Shinigami
     uniqueID: 3446010281
+    locked: 0
+  - name: Ground
+    uniqueID: 2578413107
+    locked: 0
+  - name: Arrow
+    uniqueID: 4185780993
     locked: 0
