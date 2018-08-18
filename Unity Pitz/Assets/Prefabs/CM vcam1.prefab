@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabAsset: 1
 --- !u!1 &1453313969584026
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4276296413347404}
   - component: {fileID: 114895385527364884}
+  - component: {fileID: 114714587872495824}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4977524089692664
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453313969584026}
@@ -71,9 +72,20 @@ Transform:
   m_Father: {fileID: 4276296413347404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114775858421678250
+--- !u!114 &114714587872495824
 MonoBehaviour:
   m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462521359607072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c398ca1f73ffdd940959fa5570c8a012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114775858421678250
+MonoBehaviour:
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453313969584026}
@@ -120,7 +132,7 @@ MonoBehaviour:
   m_ComponentOwner: {fileID: 4977524089692664}
 --- !u!114 &114971827619194138
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453313969584026}

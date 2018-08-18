@@ -16,6 +16,7 @@ public class shinigami : MonoBehaviour
         playerController = GameObject.FindObjectOfType<PitzGuyController>();
         target = GameObject.FindGameObjectWithTag("Player");
         deathSound = Resources.Load<AudioClip>("death1");
+        speed = 0.05f;
     }
 
     void OnTriggerEnter2D(Collider2D other)
