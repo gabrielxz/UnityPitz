@@ -6,17 +6,23 @@ public class MusicPlayer : MonoBehaviour
 {
     static MusicPlayer instance = null;
 
+    AudioSource backgroundAudioSource;
+
     void Start()
     {
+
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
-            print("Duplicate music player self-destructing!");
         }
         else
         {
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
+
+            backgroundAudioSource = GetComponent<AudioSource>();
+            backgroundAudioSource.clip = Resources.Load<AudioClip>("horrorAmbience");
+            backgroundAudioSource.Play();
         }
 
     }
