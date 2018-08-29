@@ -14120,7 +14120,13 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 114179848349297444, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: GmpPrefab
+      value: 
+      objectReference: {fileID: 1674425446060538, guid: d18aa50802bac5a4a94fcced6b6892ef,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
   m_IsPrefabAsset: 0

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PitzGuyController : MonoBehaviour
 {
-
     public float speed;
+
+    public GameObject GmpPrefab;
 
     private Rigidbody2D playerRigidbody;
 
@@ -25,6 +26,14 @@ public class PitzGuyController : MonoBehaviour
         deathAudio = GameObject.FindGameObjectWithTag("DeathAudio").GetComponent<AudioSource>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         playerTransform = GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject tile = Instantiate(GmpPrefab, transform.position, Quaternion.identity, transform);
+        }
     }
 
     void FixedUpdate()
@@ -82,3 +91,4 @@ public class PitzGuyController : MonoBehaviour
         }
     }
 }
+

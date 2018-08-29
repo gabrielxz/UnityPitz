@@ -933,6 +933,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114179848349297444, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494613424303250, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 212831869698173998, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1385751541
+      objectReference: {fileID: 0}
+    - target: {fileID: 212831869698173998, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179848349297444, guid: a24edf9eb1fa84e40bf3ab2fdd0be851,
+        type: 2}
+      propertyPath: GmpPrefab
+      value: 
+      objectReference: {fileID: 1674425446060538, guid: d18aa50802bac5a4a94fcced6b6892ef,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24edf9eb1fa84e40bf3ab2fdd0be851, type: 2}
   m_IsPrefabAsset: 0
