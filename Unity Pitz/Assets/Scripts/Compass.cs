@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Compass : MonoBehaviour
 {
-    public Quaternion MissionDirection;
-    public Transform Arrow;
-    public Transform Missionplace;
+    private Quaternion MissionDirection;
+    private Transform Arrow;
+    private Transform Missionplace;
 
     void Start()
     {
