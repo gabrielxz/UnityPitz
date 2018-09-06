@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeathAudio
   - GMP
+  - Arrow
+  - Goal
   layers:
   - Default
   - TransparentFX
